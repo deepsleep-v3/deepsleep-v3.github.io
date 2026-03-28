@@ -9,7 +9,13 @@ multilingual: true
 
 {% include multilingual-sel.html %}
 
-<!-- Chinese Version -->
+<!-- Traditional Chinese Version -->
+<div class="zh-tw post-container">
+    {% capture about_zh_tw %}{% include about/zh-TW.md %}{% endcapture %}
+    {{ about_zh_tw | markdownify }}
+</div>
+
+<!-- Simplified Chinese Version -->
 <div class="zh post-container">
     {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
     {{ about_zh | markdownify }}

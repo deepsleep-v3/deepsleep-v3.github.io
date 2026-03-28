@@ -222,6 +222,7 @@
 <script type="text/javascript">
     // get nodes
     var $zh = document.querySelector(".zh");
+    var $zh_tw = document.querySelector(".zh-tw");
     var $en = document.querySelector(".en");
     var $select = document.querySelector("select");
 
@@ -239,16 +240,35 @@
         var lang = getLang()
         // en
         if (lang == "en") {
-            $select.selectedIndex = 1;
+            $select.selectedIndex = 2;
             $en.style.display = "block";
             $en.classList.add("active");
             $zh.style.display = "none";
             $zh.classList.remove("active");
+            if ($zh_tw) {
+                $zh_tw.style.display = "none";
+                $zh_tw.classList.remove("active");
+            }
+            // zh-tw
+        } else if (lang == "zh-tw") {
+            $select.selectedIndex = 0;
+            if ($zh_tw) {
+                $zh_tw.style.display = "block";
+                $zh_tw.classList.add("active");
+            }
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
             // default to zh-cn
         } else {
             $select.selectedIndex = 0;
             $zh.style.display = "block";
             $zh.classList.add("active");
+            if ($zh_tw) {
+                $zh_tw.style.display = "none";
+                $zh_tw.classList.remove("active");
+            }
             $en.style.display = "none";
             $en.classList.remove("active");
         }
@@ -259,6 +279,8 @@
     // handle select change
     function onLanChange(index) {
         if (index == 0) {
+            lang = "zh-tw"
+        } else if (index == 1) {
             lang = "zh"
         } else {
             lang = "en"

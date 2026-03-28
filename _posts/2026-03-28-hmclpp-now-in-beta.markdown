@@ -2,7 +2,7 @@
 layout:     post
 title:      "HMCL++官宣进入公测！！"
 subtitle:   " \"HMCL++！！\""
-date:       2015-01-29 12:00:00
+date:       2026-03-28 18:16:00
 author:     "deepsleep-v3"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -65,4 +65,4 @@ versionRoot=3.12
 buildNumber=0
 channel=dev
 ```
-*******相关Release已在放出！！*******
+*****相关Release已在放出！！*****
