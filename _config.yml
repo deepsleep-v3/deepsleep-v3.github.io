@@ -73,7 +73,7 @@ sidebar-avatar: https://github.com/Huxpro.png # 使用絕對 URL，因為它在 
 
 # 特色標籤
 featured-tags: true # 是否使用特色標籤
-featured-condition-size: 1 # 如果標籤的文章數量大於此條件值，該標籤將被展示
+featured-condition-size: 0 # 如果標籤的文章數量大於此條件值，該標籤將被展示
 
 # 漸進式 Web 應用
 chrome-tab-theme-color: "#AFFFC0"
@@ -85,7 +85,11 @@ page-mathjax: false
 # 友情鏈接
 friends: [
   {
-    title: "HMCL++",
+    title: "HMCL++ (Hello Minecraft! Launcher Plus Plus)",
     href: "https://github.com/deepsleep-v3/HMCLPP"
+  },
+  {
+    title: "TT (TypewriTer practice)",
+    href: "https://github.com/deepsleep-v3/TT"
   }
 ]

@@ -11,15 +11,29 @@
     <div class="tags">
         {% capture tags %}
         {% comment %}
-            there must be no space between for and if otherwise this tricky sort won't work.
-            url_encode/decode is for escaping otherwise extra <a> will get generated 
-            but it will break sort...
+            Show featured tags from override list AND auto-detected tags
+            Both modes work together: override tags are shown first, then all qualifying tags (deduplicated)
         {% endcomment %}
+        {% assign shown_tags = "" | split: "," %}
+        {% if site.featured-tags-override %}
+            {% for tag_name in site.featured-tags-override %}
+                {% assign tag = site.tags[tag_name] %}
+                {% if tag %}
+                    <a data-sort="{{ site.posts.size | minus: tag.size | prepend: '0000' | slice: -4, 4 }}" 
+                        href="{{ site.baseurl }}/archive/?tag={{ tag_name | url_encode }}"
+                        title="{{ tag_name }}"
+                        rel="{{ tag.size }}">{{ tag_name }}</a>__SEPARATOR__
+                    {% assign shown_tags = shown_tags | push: tag_name %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
         {% for tag in site.tags %}{% if tag[1].size > site.featured-condition-size %}
-                <a data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}" 
-                    href="{{ site.baseurl }}/archive/?tag={{ tag[0] | url_encode }}"
-                    title="{{ tag[0] }}"
-                    rel="{{ tag[1].size }}">{{ tag[0] }}</a>__SEPARATOR__
+            {% unless shown_tags contains tag[0] %}
+            <a data-sort="{{ site.posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}"
+               href="{{ site.baseurl }}/archive/?tag={{ tag[0] | url_encode }}"
+               title="{{ tag[0] }}"
+               rel="{{ tag[1].size }}">{{ tag[0] }}</a>__SEPARATOR__
+            {% endunless %}
         {% endif %}{% endfor %}
         {% endcapture %}
         {{ tags | split:'__SEPARATOR__' | sort }}
