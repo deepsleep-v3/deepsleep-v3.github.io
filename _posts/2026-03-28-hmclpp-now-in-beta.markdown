@@ -2,7 +2,7 @@
 layout:     post
 title:      "HMCL++官宣进入公测！！"
 subtitle:   " \"HMCL++！！\""
-date:       "2026:03:28"
+date:       2026-03-28 12:00:00 +0800
 author:     "deepsleep-v3"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
