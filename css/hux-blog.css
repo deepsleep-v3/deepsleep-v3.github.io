@@ -2,6 +2,9 @@
   font-family: 'io.github.deepsleep-v3.blog.fonts.default';
   src: url('../fonts/YshiPenShutiTC-Regular.ttf') format('truetype');
 }
+.giscus {
+  font-family: 'io.github.deepsleep-v3.blog.fonts.default', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
