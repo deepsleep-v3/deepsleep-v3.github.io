@@ -11,6 +11,13 @@ tags:
 multilingual: true
 ---
 
+<style>
+/* Multi-language containers - hide all by default */
+.zh-tw, .zh-cn, .en {
+    display: none !important;
+}
+</style>
+
 <!-- Traditional Chinese Version (zh-TW) -->
 <div class="zh-tw post-container">
 
