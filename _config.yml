@@ -30,7 +30,7 @@ exclude:
     "Gruntfile.js",
     "package.json",
     "README.md",
-    "README.zh-cn.md",
+    "README.zh.md",
   ]
 anchorjs: true # 如果你想自定義錨點。請查看 `post.html` 第 181 行
 # 如果在中國有時區問題（例如 #68），取消註釋以使用此設置：
