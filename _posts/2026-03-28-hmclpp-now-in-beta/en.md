@@ -1,21 +1,22 @@
 ---
 layout:     post
-title:      "HMCL++官宣进入公测！！"
-subtitle:   " \"HMCL++！！\""
+title:      "HMCL++ Officially Enters Public Beta!!"
+subtitle:   " \"HMCL++!!\""
 date:       2026-03-28 12:00:00 +0800
 author:     "deepsleep-v3"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
     - HMCL++
+multilingual: true
 ---
 
 > First public version!!
 
-大家好，这里是deepsleep-v3， HMCL++ 3.12.0.0 正式发布！！
-> 未来穿越者：deepsleep-v3，怎么还有个3.12.0发布？！
+Hello everyone, this is deepsleep-v3. HMCL++ 3.12.0.0 is officially released!!
+> Future Time Traveler: deepsleep-v3, why is there a 3.12.0 release?!
 
-（回复未来穿越者）：啊这，不得不提到HMCL++的upstream：HMCL-dev/HMCL了……***/HMCL/build.gradle.kts里的屎山……***
+(Replying to the future time traveler): Ah well, I have to mention HMCL++'s upstream: HMCL-dev/HMCL... The messy code in ***/HMCL/build.gradle.kts***...
 ```kotlin
 // /HMCL/build.gradle.kts
 val projectConfig = PropertiesUtils.load(rootProject.file("config/project.properties").toPath())
@@ -41,7 +42,7 @@ if (buildNumber != null) {
     }
 }
 ```
-***
+---
 ```properties
 # /config/project.properties
 #
@@ -65,4 +66,4 @@ versionRoot=3.12
 buildNumber=0
 channel=dev
 ```
-*****相关Release已在放出！！*****
+Related releases are being rolled out!!

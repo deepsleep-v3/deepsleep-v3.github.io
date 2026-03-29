@@ -225,9 +225,11 @@
 
     // handle render
     function _render() {
-        var lang = getLang()
+        var lang = getLang();
+        if (lang) lang = lang.toLowerCase();  // 转换为小写，支持大小写不敏感
+        
         // en
-        if (lang == "en") {
+        if (lang === "en") {
             $select.selectedIndex = 2;
             $en.style.display = "block";
             $en.classList.add("active");
@@ -237,19 +239,7 @@
                 $zh_tw.style.display = "none";
                 $zh_tw.classList.remove("active");
             }
-            // zh-tw
-        } else if (lang == "zh-tw") {
-            $select.selectedIndex = 0;
-            if ($zh_tw) {
-                $zh_tw.style.display = "block";
-                $zh_tw.classList.add("active");
-            }
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
-            $en.style.display = "none";
-            $en.classList.remove("active");
-            // default to zh-cn
-        } else {
+        } else if (lang === "zh-cn") {
             $select.selectedIndex = 0;
             $zh.style.display = "block";
             $zh.classList.add("active");
@@ -259,8 +249,18 @@
             }
             $en.style.display = "none";
             $en.classList.remove("active");
-        }
-        // interop with catalog 
+        } else {
+            $select.selectedIndex = 0;
+            if ($zh_tw) {
+                $zh_tw.style.display = "block";
+                $zh_tw.classList.add("active");
+            }
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
+            // default to zh-tw
+        // interop with catalogue
         generateCatalog(".catalog-body");
     }
 
@@ -269,7 +269,7 @@
         if (index == 0) {
             lang = "zh-tw"
         } else if (index == 1) {
-            lang = "zh"
+            lang = "zh-cn"
         } else {
             lang = "en"
         }
