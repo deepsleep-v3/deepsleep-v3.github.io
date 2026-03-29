@@ -11,9 +11,6 @@ tags:
 multilingual: true
 ---
 
-<!-- Multi-Lingual Selector -->
-{% include multilingual-sel.html %}
-
 <!-- Traditional Chinese Version (zh-TW) -->
 <div class="zh-tw post-container">
 > First public version!!
