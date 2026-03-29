@@ -219,7 +219,10 @@
         params.set("lang", newLang)
         document.location.search = params.toString()  // refresh.
     }
-
+    $zh = document.querySelector(".zh-cn");
+    $zh_tw = document.querySelector(".zh-tw");
+    $en = document.querySelector(".en");
+    $select = document.querySelector("select");
     // handle render
     function _render() {
         var lang = getLang();
@@ -229,43 +232,30 @@
         
         // en
         if (lang === "en") {
-            if ($select) $select.selectedIndex = 2;
+            $select.selectedIndex = 2;
             $en.style.display = "block";
             $en.classList.add("active");
-            if ($zh) {
-                $zh.style.display = "none";
-                $zh.classList.remove("active");
-            }
-            if ($zh_tw) {
-                $zh_tw.style.display = "none";
-                $zh_tw.classList.remove("active");
-            }
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            $zh_tw.style.display = "none";
+            $zh_tw.classList.remove("active");
         } else if (lang === "zh-cn") {
-            if ($select) $select.selectedIndex = 1;
-            if ($zh) {
-                $zh.style.display = "block";
-                $zh.classList.add("active");
-            if ($zh_tw) {
-                $zh_tw.style.display = "none";
-                $zh_tw.classList.remove("active");
-            }
-            if ($en) {
-                $en.style.display = "none";
-                $en.classList.remove("active");
-            }
+            $select.selectedIndex = 1;
+            $zh.style.display = "block";
+            $zh.classList.add("active");
+            $zh_tw.style.display = "none";
+            $zh_tw.classList.remove("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
         } else {
             // default to zh-tw
-            if ($select) $select.selectedIndex = 0;
+            $select.selectedIndex = 0;
             $zh_tw.style.display = "block";
             $zh_tw.classList.add("active");
-            if ($zh) {
-                $zh.style.display = "none";
-                $zh.classList.remove("active");
-            }
-            if ($en) {
-                $en.style.display = "none";
-                $en.classList.remove("active");
-            }
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
         }
         generateCatalog(".catalog-body");
     }
@@ -282,19 +272,7 @@
         }
         setLang(lang)
     }
-
-    $(document).ready(function() {
-        // get nodes
-        $zh = document.querySelector(".zh-cn");
-        $zh_tw = document.querySelector(".zh-tw");
-        $en = document.querySelector(".en");
-        $select = document.querySelector("select");
-        
-        console.log('Multi-lang elements found:', { zh: $zh, zh_tw: $zh_tw, en: $en });
-
-        // init
-        _render();
-    });
+    _render();
 </script>
 {% endif %}
 
