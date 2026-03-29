@@ -209,7 +209,7 @@
 <!-- Handle Language Change -->
 <script type="text/javascript">
     // get nodes
-    var $zh = document.querySelector(".zh");
+    var $zh = document.querySelector(".zh-cn");
     var $zh_tw = document.querySelector(".zh-tw");
     var $en = document.querySelector(".en");
     var $select = document.querySelector("select");
@@ -240,7 +240,7 @@
                 $zh_tw.classList.remove("active");
             }
         } else if (lang === "zh-cn") {
-            $select.selectedIndex = 0;
+            $select.selectedIndex = 1;
             $zh.style.display = "block";
             $zh.classList.add("active");
             if ($zh_tw) {
@@ -260,7 +260,7 @@
             $en.style.display = "none";
             $en.classList.remove("active");
             // default to zh-tw
-        // interop with catalogue
+        }
         generateCatalog(".catalog-body");
     }
 
