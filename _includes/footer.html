@@ -231,35 +231,47 @@
         // en
         if (lang === "en") {
             $select.selectedIndex = 2;
-            $en.style.display = "block";
-            $en.classList.add("active");
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
+            if ($en) {
+                $en.style.display = "block";
+                $en.classList.add("active");
+            }
+            if ($zh) {
+                $zh.style.display = "none";
+                $zh.classList.remove("active");
+            }
             if ($zh_tw) {
                 $zh_tw.style.display = "none";
                 $zh_tw.classList.remove("active");
             }
         } else if (lang === "zh-cn") {
             $select.selectedIndex = 1;
-            $zh.style.display = "block";
-            $zh.classList.add("active");
+            if ($zh) {
+                $zh.style.display = "block";
+                $zh.classList.add("active");
+            }
             if ($zh_tw) {
                 $zh_tw.style.display = "none";
                 $zh_tw.classList.remove("active");
             }
-            $en.style.display = "none";
-            $en.classList.remove("active");
+            if ($en) {
+                $en.style.display = "none";
+                $en.classList.remove("active");
+            }
         } else {
+            // default to zh-tw
             $select.selectedIndex = 0;
             if ($zh_tw) {
                 $zh_tw.style.display = "block";
                 $zh_tw.classList.add("active");
             }
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
-            $en.style.display = "none";
-            $en.classList.remove("active");
-            // default to zh-tw
+            if ($zh) {
+                $zh.style.display = "none";
+                $zh.classList.remove("active");
+            }
+            if ($en) {
+                $en.style.display = "none";
+                $en.classList.remove("active");
+            }
         }
         generateCatalog(".catalog-body");
     }

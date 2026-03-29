@@ -13,12 +13,15 @@ multilingual: true
 
 <!-- Traditional Chinese Version (zh-TW) -->
 <div class="zh-tw post-container">
+
 > First public version!!
 
 大家好，這裡是 deepsleep-v3，HMCL++ 3.12.0.0 正式發佈！！
+
 > 未來穿越者：deepsleep-v3，怎麼還有個 3.12.0 發佈？！
 
 （回覆未來穿越者）：啊這，不得不提到 HMCL++ 的 upstream：HMCL-dev/HMCL 了⋯⋯***/HMCL/build.gradle.kts 裡的屎山⋯⋯
+
 ```kotlin
 // /HMCL/build.gradle.kts
 val projectConfig = PropertiesUtils.load(rootProject.file("config/project.properties").toPath())
@@ -68,11 +71,14 @@ versionRoot=3.12
 buildNumber=0
 channel=dev
 ```
+
 *****相關 Release 已在放出！！*****
+
 </div>
 
 <!-- Simplified Chinese Version (zh-CN) -->
 <div class="zh-cn post-container">
+
 > First public version!!
 
 大家好，这里是 deepsleep-v3，HMCL++ 3.12.0.0 正式发布！！
@@ -128,11 +134,14 @@ versionRoot=3.12
 buildNumber=0
 channel=dev
 ```
+
 *****相关 Release 已在放出！！*****
+
 </div>
 
 <!-- English Version (en) -->
 <div class="en post-container">
+
 > First public version!!
 
 Hello everyone, this is deepsleep-v3. HMCL++ 3.12.0.0 is officially released!!
@@ -188,5 +197,7 @@ versionRoot=3.12
 buildNumber=0
 channel=dev
 ```
+
 ***Related releases are being rolled out!!***
+
 </div>
