@@ -9,17 +9,11 @@ catalog: true
 tags:
     - HMCL++
 multilingual: true
+mathjax: true
 ---
 
-<style>
-/* Multi-language containers - hide all by default */
-.zh-tw, .zh-cn, .en {
-    display: none !important;
-}
-</style>
-
 <!-- Traditional Chinese Version (zh-TW) -->
-<div class="zh-tw post-container">
+<div class="zh-tw">
 
 > First public version!!
 
@@ -84,7 +78,7 @@ channel=dev
 </div>
 
 <!-- Simplified Chinese Version (zh-CN) -->
-<div class="zh-cn post-container">
+<div class="zh-cn">
 
 > First public version!!
 
@@ -147,7 +141,7 @@ channel=dev
 </div>
 
 <!-- English Version (en) -->
-<div class="en post-container">
+<div class="en">
 
 > First public version!!
 

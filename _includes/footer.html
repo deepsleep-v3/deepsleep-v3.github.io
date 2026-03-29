@@ -230,10 +230,8 @@
         // en
         if (lang === "en") {
             if ($select) $select.selectedIndex = 2;
-            if ($en) {
-                $en.style.display = "block";
-                $en.classList.add("active");
-            }
+            $en.style.display = "block";
+            $en.classList.add("active");
             if ($zh) {
                 $zh.style.display = "none";
                 $zh.classList.remove("active");
@@ -247,7 +245,6 @@
             if ($zh) {
                 $zh.style.display = "block";
                 $zh.classList.add("active");
-            }
             if ($zh_tw) {
                 $zh_tw.style.display = "none";
                 $zh_tw.classList.remove("active");
@@ -259,10 +256,8 @@
         } else {
             // default to zh-tw
             if ($select) $select.selectedIndex = 0;
-            if ($zh_tw) {
-                $zh_tw.style.display = "block";
-                $zh_tw.classList.add("active");
-            }
+            $zh_tw.style.display = "block";
+            $zh_tw.classList.add("active");
             if ($zh) {
                 $zh.style.display = "none";
                 $zh.classList.remove("active");
