@@ -208,90 +208,94 @@
 {% if page.multilingual %}
 <!-- Handle Language Change -->
 <script type="text/javascript">
+    // get nodes
+    var $zh, $zh_tw, $en, $select;
+
+    // Changes at v1.8.1: include lang flag as a url query. This interop well with catalog hash anchors.
+    function getLang() { return new URLSearchParams(document.location.search).get("lang") }
+
+    function setLang(newLang) {
+        var params = new URLSearchParams(document.location.search)
+        params.set("lang", newLang)
+        document.location.search = params.toString()  // refresh.
+    }
+
+    // handle render
+    function _render() {
+        var lang = getLang();
+        if (lang) lang = lang.toLowerCase();  // 转换为小写，支持大小写不敏感
+        
+        console.log('Current lang:', lang);
+        
+        // en
+        if (lang === "en") {
+            if ($select) $select.selectedIndex = 2;
+            if ($en) {
+                $en.style.display = "block";
+                $en.classList.add("active");
+            }
+            if ($zh) {
+                $zh.style.display = "none";
+                $zh.classList.remove("active");
+            }
+            if ($zh_tw) {
+                $zh_tw.style.display = "none";
+                $zh_tw.classList.remove("active");
+            }
+        } else if (lang === "zh-cn") {
+            if ($select) $select.selectedIndex = 1;
+            if ($zh) {
+                $zh.style.display = "block";
+                $zh.classList.add("active");
+            }
+            if ($zh_tw) {
+                $zh_tw.style.display = "none";
+                $zh_tw.classList.remove("active");
+            }
+            if ($en) {
+                $en.style.display = "none";
+                $en.classList.remove("active");
+            }
+        } else {
+            // default to zh-tw
+            if ($select) $select.selectedIndex = 0;
+            if ($zh_tw) {
+                $zh_tw.style.display = "block";
+                $zh_tw.classList.add("active");
+            }
+            if ($zh) {
+                $zh.style.display = "none";
+                $zh.classList.remove("active");
+            }
+            if ($en) {
+                $en.style.display = "none";
+                $en.classList.remove("active");
+            }
+        }
+        generateCatalog(".catalog-body");
+    }
+
+    // handle select change - MUST be global
+    function onLanChange(index) {
+        var lang;
+        if (index == 0) {
+            lang = "zh-tw"
+        } else if (index == 1) {
+            lang = "zh-cn"
+        } else {
+            lang = "en"
+        }
+        setLang(lang)
+    }
+
     $(document).ready(function() {
         // get nodes
-        var $zh = document.querySelector(".zh-cn");
-        var $zh_tw = document.querySelector(".zh-tw");
-        var $en = document.querySelector(".en");
-        var $select = document.querySelector("select");
+        $zh = document.querySelector(".zh-cn");
+        $zh_tw = document.querySelector(".zh-tw");
+        $en = document.querySelector(".en");
+        $select = document.querySelector("select");
         
         console.log('Multi-lang elements found:', { zh: $zh, zh_tw: $zh_tw, en: $en });
-
-        // Changes at v1.8.1: include lang flag as a url query. This interop well with catalog hash anchors.
-        function getLang() { return new URLSearchParams(document.location.search).get("lang") }
-
-        function setLang(newLang) {
-            var params = new URLSearchParams(document.location.search)
-            params.set("lang", newLang)
-            document.location.search = params.toString()  // refresh.
-        }
-
-        // handle render
-        function _render() {
-            var lang = getLang();
-            if (lang) lang = lang.toLowerCase();  // 转换为小写，支持大小写不敏感
-            
-            console.log('Current lang:', lang);
-            
-            // en
-            if (lang === "en") {
-                $select.selectedIndex = 2;
-                if ($en) {
-                    $en.style.display = "block";
-                    $en.classList.add("active");
-                }
-                if ($zh) {
-                    $zh.style.display = "none";
-                    $zh.classList.remove("active");
-                }
-                if ($zh_tw) {
-                    $zh_tw.style.display = "none";
-                    $zh_tw.classList.remove("active");
-                }
-            } else if (lang === "zh-cn") {
-                $select.selectedIndex = 1;
-                if ($zh) {
-                    $zh.style.display = "block";
-                    $zh.classList.add("active");
-                }
-                if ($zh_tw) {
-                    $zh_tw.style.display = "none";
-                    $zh_tw.classList.remove("active");
-                }
-                if ($en) {
-                    $en.style.display = "none";
-                    $en.classList.remove("active");
-                }
-            } else {
-                // default to zh-tw
-                $select.selectedIndex = 0;
-                if ($zh_tw) {
-                    $zh_tw.style.display = "block";
-                    $zh_tw.classList.add("active");
-                }
-                if ($zh) {
-                    $zh.style.display = "none";
-                    $zh.classList.remove("active");
-                }
-                if ($en) {
-                    $en.style.display = "none";
-                    $en.classList.remove("active");
-                }
-            }
-            generateCatalog(".catalog-body");
-        }
-
-        // handle select change
-        function onLanChange(index) {
-            if (index == 0) {
-                lang = "zh-tw"
-            } else if (index == 1) {
-                lang = "zh-cn"
-            } else {
-                lang = "en"
-            }
-            setLang(lang)
-        }
 
         // init
         _render();
