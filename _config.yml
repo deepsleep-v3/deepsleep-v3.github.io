@@ -80,7 +80,7 @@ chrome-tab-theme-color: "#AFFFC0"
 service-worker: true
 
 # MathJax 渲染用於 layout:page（例如文章預覽）
-page-mathjax: false
+page-mathjax: true
 
 # 友情鏈接
 friends: [
